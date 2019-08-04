@@ -26,6 +26,9 @@
             <div class="btn-group" role="group" aria-label="Edit group">
               <button routerLink="/hive/{{hive.id}}" type="button" class="btn btn-primary">Edit</button>
             </div>
+            <div *ngIf="hive.isDeleted" class="btn-group" role="group" aria-label="Restore group" (click)="onRestore(hive.id)">
+                <button type="button" class="btn btn-primary">Restore</button>
+              </div>
           </span>
                 </td>
             </tr>
