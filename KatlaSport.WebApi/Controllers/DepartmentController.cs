@@ -51,7 +51,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a child departments.", Type = typeof(DepartmentListItem))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> GetDhildDepartments(int departmentId)
+        public async Task<IHttpActionResult> GetChildDepartments(int departmentId)
         {
             var childDepartments = await _departmentService.GetChildDepartments(departmentId);
             return Ok(childDepartments);

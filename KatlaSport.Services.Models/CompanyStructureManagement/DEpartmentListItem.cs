@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace KatlaSport.Services.CompanyStructureManagement
 {
@@ -17,5 +18,7 @@ namespace KatlaSport.Services.CompanyStructureManagement
         public bool IsDeleted { get; set; }
 
         public DateTime LastUpdated { get; set; }
+
+        public List<DepartmentMainInfo> ChildDepartments { get; set; } = new List<DepartmentMainInfo>();
     }
 }

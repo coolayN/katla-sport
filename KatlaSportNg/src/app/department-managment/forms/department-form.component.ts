@@ -10,20 +10,21 @@ import { Department } from '../models/department';
 })
 
 export class DepartmentFormComponent implements OnInit {
-  department = new Department(0, 0,"", "", "", false, "");
+  department = new Department(0, 0,"", "", "", false, "", null);
   existed = false;
   departments: Department[];
 
   constructor(private route: ActivatedRoute, private router: Router, private departmentService: DepartmentService) { }
   ngOnInit() {
-    this.departmentService.getDepartments().subscribe(d => this.departments = d);
+    this.departmentService.getDepartments().subscribe(d =>{ this.departments = d});
     this.route.params.subscribe(p => {
 
       if (p['id'] === undefined)
         return;
         this.existed = true;
       this.departmentService.getDepartment(p['id']).subscribe(d => this.department = d);
-      
+      let ind = this.departments.indexOf(this.department);
+      this.departments.splice(ind,1);
     });
   }
   navigateToDepartments() {

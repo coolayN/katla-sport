@@ -25,7 +25,7 @@
         <div class="form-group">
             <label for="parentDepartment" id="parentDepartmentLabel">Parent Department</label>
             <select class="custom-select" [(ngModel)]="department.parentId" id="parentDepartment" aria-describedby="parentDepartmentLabel" #parentDepartment="ngModel" [ngModelOptions]="{standalone: true}">
-                 <option>null</option> 
+                 <option [ngValue]="null">null</option> 
                   <option *ngFor="let dep of departments" [ngValue]="dep.id">{{dep.name}}</option>
                 </select>
         </div>

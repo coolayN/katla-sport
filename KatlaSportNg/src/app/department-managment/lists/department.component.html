@@ -5,7 +5,8 @@
             <th scope="col">#</th>
             <th scope="col">Code</th>
             <th scope="col">Name</th>
-            <th scope="col">Parent Deparment Name</th>
+            <th scope="col">Parent Deparment Name</th>.
+            <th scope="col"></th>
             <th scope="col"></th>
         </thead>
         <tbody>
@@ -14,14 +15,20 @@
                 <th scope="row">{{department.code}}</th>
                 <th scope="row">{{department.name}}</th>
                 <th scope="row">{{department.parentName}}</th>
+                <th scope="row">
+
+                </th>
+                <select>
+                    <option disabled="disabled">--Child Departments--</option>
+                        <option disabled="disabled" *ngFor="let dep of department.childDepartments" [ngValue]="dep.id">{{dep.name}}</option>
+                      </select>
                 <td>
                     <span class="btn-toolbar" role="toolbar" aria-label="Department action buttons" style="display: block; white-space:nowrap;">
             <div class="btn-group mr-2" role="group" aria-label="Delete group" *ngIf="!department.isDeleted" (click)="onDelete(department.id)">
               <button type="button" class="btn btn-danger">Delete</button>
             </div>
-            <!-- <div class="btn-group mr-2" role="group" aria-label="View group">
-              <button routerLink="/hive/{{hive.id}}/sections" type="button" class="btn btn-primary">View sections</button>
-            </div> -->
+                   
+
             <div class="btn-group" role="group" aria-label="Edit group">
               <button routerLink="/department/{{department.id}}" type="button" class="btn btn-primary">Edit</button>
             </div>

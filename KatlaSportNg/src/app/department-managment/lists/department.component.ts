@@ -10,6 +10,8 @@ import { DepartmentService } from '../services/department.service';
 export class DepartmentListComponent implements OnInit {
 
   departments: Department[];
+  
+
 
   constructor(private departmentService: DepartmentService) { }
 
