@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KatlaSport.Services.ImageManagement;
+using System;
 
 namespace KatlaSport.Services.CompanyStructureManagement
 {
@@ -15,5 +16,11 @@ namespace KatlaSport.Services.CompanyStructureManagement
         public DateTime DateOfBirth { get; set; }
 
         public string Position { get; set; }
+
+        public DateTime EmploymentDate { get; set; }
+
+        public int PhotoId { get; set; }
+
+        public virtual MyImage Photo { get; set; }
     }
 }
