@@ -76,7 +76,7 @@
     <Compile Include="CustomerManagement\CustomerManagementService.cs" />
     <Compile Include="CustomerManagement\ICustomerManagementService.cs" />
     <Compile Include="DepartmentManagement\DepartmentManagmentMappingProfile.cs" />
-    <Compile Include="DepartmentManagement\DepatmentService.cs" />
+    <Compile Include="DepartmentManagement\DepartmentService.cs" />
     <Compile Include="DependencyRegistrationModule.cs" />
     <Compile Include="HiveAnalytics\HiveAnalysisService.cs" />
     <Compile Include="HiveAnalytics\IHiveAnalysisService.cs" />

@@ -78,6 +78,10 @@
     <Compile Include="IAsyncEntityStorage.cs" />
     <Compile Include="IDatabaseLogger.cs" />
     <Compile Include="IEntitySet.cs" />
+    <Compile Include="Migrations\201908060831506_Add Department.cs" />
+    <Compile Include="Migrations\201908060831506_Add Department.Designer.cs">
+      <DependentUpon>201908060831506_Add Department.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductCatalogue\CatalogueProduct.cs" />
     <Compile Include="ProductCatalogue\CatalogueProductConfiguration.cs" />
     <Compile Include="ProductCatalogue\IProductCatalogueContext.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907151857153_AddProductDescriptionManCodePrice.resx">
       <DependentUpon>201907151857153_AddProductDescriptionManCodePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908060831506_Add Department.resx">
+      <DependentUpon>201908060831506_Add Department.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

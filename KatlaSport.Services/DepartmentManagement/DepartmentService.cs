@@ -9,11 +9,11 @@
     using KatlaSport.DataAccess.DepartmentStore;
     using KatlaSport.Services.CompanyStructureManagement;
 
-    public class DepatmentService : IDepartmentService
+    public class DepartmentService : IDepartmentService
     {
         private readonly IDepartmentContext _context;
 
-        public DepatmentService(IDepartmentContext context)
+        public DepartmentService(IDepartmentContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
