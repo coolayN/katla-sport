@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyStructureManagement\Department.cs" />
+    <Compile Include="CompanyStructureManagement\DepartmentListItem.cs" />
     <Compile Include="CompanyStructureManagement\Employee.cs" />
     <Compile Include="CompanyStructureManagement\IDepartmentService.cs" />
     <Compile Include="CompanyStructureManagement\IEmployeeService.cs" />

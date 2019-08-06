@@ -27,7 +27,7 @@ export class DepartmentListComponent implements OnInit {
   }
 
   onRestore(departmentId: number) {
-    var hive = this.departments.find(d => d.id == departmentId);
-    this.departmentService.setDepartmentStatus(departmentId, false).subscribe(c => hive.isDeleted = false);
+    var department = this.departments.find(d => d.id == departmentId);
+    this.departmentService.setDepartmentStatus(departmentId, false).subscribe(c => department.isDeleted = false);
   }
 }

@@ -5,9 +5,11 @@ namespace KatlaSport.Services.CompanyStructureManagement
 {
     public interface IDepartmentService
     {
-        Task<List<Department>> GetDepartments();
+        Task<List<DepartmentListItem>> GetDepartments();
 
-        Task<Department> GetDepartment(int departmentId);
+        Task<List<DepartmentListItem>> GetChildDepartments(int departmentId);
+
+        Task<DepartmentListItem> GetDepartment(int departmentId);
 
         Task<Department> CreateDepartment(UpdateDepartmentRequest createRequest);
 

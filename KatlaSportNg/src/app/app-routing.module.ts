@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'hive/:id/sections', component: HiveSectionListComponent },
   { path: 'section/:id', component: HiveSectionFormComponent },
   { path: 'departments', component: DepartmentListComponent },
+  { path: 'department/:id', component: DepartmentFormComponent },
   { path: 'department', component: DepartmentFormComponent }
 ];
 

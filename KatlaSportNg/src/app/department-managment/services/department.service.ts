@@ -20,6 +20,11 @@ export class DepartmentService {
     return this.http.get<Department>(`${this.url}${departmentId}`);
   }
 
+  getChildDepartment(departmentId: number): Observable<Department> {
+    return this.http.get<Department>(`${this.url}${departmentId}/childDepartments`);
+  }
+
+
 
   addDepartment(department: Department): Observable<Department> {
     return this.http.post<Department>(`${this.url}`, department);

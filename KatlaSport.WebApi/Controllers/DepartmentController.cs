@@ -31,19 +31,30 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public async Task<IHttpActionResult> GetDepartments()
         {
-            var hives = await _departmentService.GetDepartments();
-            return Ok(hives);
+            var department = await _departmentService.GetDepartments();
+            return Ok(department);
         }
 
         [HttpGet]
         [Route("{departmentId:int:min(1)}")]
-        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a department.", Type = typeof(Department))]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a department.", Type = typeof(DepartmentListItem))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> GetHive(int departmentId)
+        public async Task<IHttpActionResult> GetDepartment(int departmentId)
         {
-            var hive = await _departmentService.GetDepartment(departmentId);
-            return Ok(hive);
+            var department = await _departmentService.GetDepartment(departmentId);
+            return Ok(department);
+        }
+
+        [HttpGet]
+        [Route("{departmentId:int:min(1)}/childDepartments")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns a child departments.", Type = typeof(DepartmentListItem))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
+        public async Task<IHttpActionResult> GetDhildDepartments(int departmentId)
+        {
+            var childDepartments = await _departmentService.GetChildDepartments(departmentId);
+            return Ok(childDepartments);
         }
 
         [HttpPost]
@@ -52,7 +63,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.BadRequest)]
         [SwaggerResponse(HttpStatusCode.Conflict)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> AddHive([FromBody] UpdateDepartmentRequest createRequest)
+        public async Task<IHttpActionResult> AddDepartment([FromBody] UpdateDepartmentRequest createRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -70,7 +81,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.Conflict)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> UpdateHive([FromUri] int departmentId, [FromBody] UpdateDepartmentRequest updateRequest)
+        public async Task<IHttpActionResult> UpdateDepartment([FromUri] int departmentId, [FromBody] UpdateDepartmentRequest updateRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -87,7 +98,7 @@ namespace KatlaSport.WebApi.Controllers
         [SwaggerResponse(HttpStatusCode.Conflict)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.InternalServerError)]
-        public async Task<IHttpActionResult> DeleteHive([FromUri] int departmentId)
+        public async Task<IHttpActionResult> DeleteDepartment([FromUri] int departmentId)
         {
             if (!ModelState.IsValid)
             {

@@ -52,7 +52,7 @@
             _context.SaveChangesAsync();
         }
 
-        public async Task<Department> GetDepartment(int departmentId)
+        public async Task<List<DepartmentListItem>> GetChildDepartments(int departmentId)
         {
             var dbDepartments = await _context.Departments.Where(d => d.Id == departmentId).ToArrayAsync();
             if (dbDepartments.Length == 0)
@@ -60,13 +60,26 @@
                 throw new RequestedResourceNotFoundException();
             }
 
-            return Mapper.Map<StoreDepartment, Department>(dbDepartments[0]);
+            var childDepartments = dbDepartments[0].ChildDepartments.Select(d => Mapper.Map<StoreDepartment, DepartmentListItem>(d)).ToList();
+
+            return childDepartments;
         }
 
-        public async Task<List<Department>> GetDepartments()
+        public async Task<DepartmentListItem> GetDepartment(int departmentId)
+        {
+            var dbDepartments = await _context.Departments.Where(d => d.Id == departmentId).ToArrayAsync();
+            if (dbDepartments.Length == 0)
+            {
+                throw new RequestedResourceNotFoundException();
+            }
+
+            return Mapper.Map<StoreDepartment, DepartmentListItem>(dbDepartments[0]);
+        }
+
+        public async Task<List<DepartmentListItem>> GetDepartments()
         {
             var dbDepartments = await _context.Departments.OrderBy(h => h.Id).ToArrayAsync();
-            var departments = dbDepartments.Select(h => Mapper.Map<Department>(h)).ToList();
+            var departments = dbDepartments.Select(h => Mapper.Map<DepartmentListItem>(h)).ToList();
 
             return departments;
         }

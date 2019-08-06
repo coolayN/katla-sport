@@ -21,6 +21,7 @@ import { ProductCategoryService } from 'app/product-management/services/product-
 import { ProductService } from 'app/product-management/services/product.service';
 import { DepartmentFormComponent } from './department-managment/forms/department-form.component';
 import { DepartmentListComponent } from './department-managment/lists/department.component';
+import { DepartmentService } from './department-managment/services/department.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DepartmentListComponent } from './department-managment/lists/department
     ProductCategoryService,
     HiveService,
     HiveSectionService,
+    DepartmentService
   ],
   bootstrap: [AppComponent]
 })

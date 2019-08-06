@@ -12,6 +12,9 @@
             CreateMap<StoreDepartment, Department>();
             CreateMap<UpdateDepartmentRequest, StoreDepartment>()
                 .ForMember(r => r.LastUpdated, opt => opt.MapFrom(p => DateTime.UtcNow));
+
+            CreateMap<StoreDepartment, DepartmentListItem>()
+               .ForMember(r => r.ParentName, opt => opt.MapFrom(p => p.ParentDepartment.Name));
         }
     }
 }
